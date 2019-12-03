@@ -1,4 +1,9 @@
 class Group < ApplicationRecord
+  after_commit do |block|
+    # called in rails5.2.x
+    # doesn't called in rails6.0.0
+    # binding.irb
+  end
   include AfterCommitAction
   has_many :group_memberships, dependent: :destroy
 
